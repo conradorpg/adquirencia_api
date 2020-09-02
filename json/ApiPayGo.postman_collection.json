@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "f3cb8cfb-3b8e-4a51-9da6-84e37645ba9a",
+		"name": "ApiPayGo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consulta por UpdateTimeStamp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"UpdateTimestamp\":\"2020-01-11 15:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.paygomais.com.br/subntk/transactions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"paygomais",
+						"com",
+						"br"
+					],
+					"path": [
+						"subntk",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por UniqueId e Filtros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"LastUniqueSearchedId\": 33026084,\r\n  \"Filters\": {\r\n    \"AuthorizerName\": \"CIELO\"\r\n  },\r\n  \"Source\": {\r\n    \"Include\": [\"UniqueId\", \"Status\", \"Type\", \"AuthorizerName\"]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.paygomais.com.br/subntk/transactions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"paygomais",
+						"com",
+						"br"
+					],
+					"path": [
+						"subntk",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por LastUniqueSearchedId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"LastUniqueSearchedId\":203752713\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.paygomais.com.br/subntk/transactions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"paygomais",
+						"com",
+						"br"
+					],
+					"path": [
+						"subntk",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por Lista de UniqueIds selecionando campos de retorno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Filters\": {\r\n    \"UniqueIds\": [63284815,61954830]\r\n  },\r\n  \"Source\": {\r\n    \"Include\": [\"UniqueId\", \"Status\", \"Type\", \"AuthorizerName\"]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.paygomais.com.br/subntk/transactions",
+					"protocol": "http",
+					"host": [
+						"api",
+						"paygomais",
+						"com",
+						"br"
+					],
+					"path": [
+						"subntk",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por Lista de UniqueIds",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Filters\": {\r\n    \"UniqueIds\": [63284815,61954830]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.paygomais.com.br/subntk/transactions",
+					"protocol": "http",
+					"host": [
+						"api",
+						"paygomais",
+						"com",
+						"br"
+					],
+					"path": [
+						"subntk",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por data e tipo de transações",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Filters\": {\r\n  \t\"ServerDateRange\": {\r\n  \t\t\"From\": \"2018-08-01\",\r\n  \t\t\"End\": \"2018-08-31\"\r\n  \t},\r\n  \t\"Types\": [33, 34]\r\n  },\r\n  \"Source\": {\r\n    \"Exclude\": [\"FullReceiptCopy\"]\r\n  },\r\n  \"Sort\": [\r\n      {\r\n         \"Field\": \"ServerTimestamp\",\r\n         \"Mode\": \"desc\"\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.paygomais.com.br/subntk/transactions",
+					"protocol": "http",
+					"host": [
+						"api",
+						"paygomais",
+						"com",
+						"br"
+					],
+					"path": [
+						"subntk",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "x-application-key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "0c6b6816-524c-4cda-8b4a-6bc5128a227b",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

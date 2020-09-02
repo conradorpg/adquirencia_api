@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.6.9 on linux)" generated="20200627 23:12:04.264" rpa="false">
+<suite id="s1" name="testAPI" source="/home/cndr/workspace/Robot/suiteCaruana/adquirenciaAPI/tests/testAPI.robot">
+<kw name="Connect to API" library="resourceAPI" type="setup">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>Adquirencia_API</arg>
+<arg>${URL_API}</arg>
+</arguments>
+<msg timestamp="20200627 23:12:04.460" level="INFO">Creating Session using : alias=Adquirencia_API, url=http://18.230.42.118:5100/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200627 23:12:04.460" endtime="20200627 23:12:04.461"></status>
+</kw>
+<status status="PASS" starttime="20200627 23:12:04.459" endtime="20200627 23:12:04.461"></status>
+</kw>
+<test id="s1-t1" name="Cadastrar novo vendedor (POST)">
+<kw name="POST em um novo vendedor" library="resourceAPI">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json; charset=utf-8</arg>
+<arg>AccessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUm9vdCIsInJvbGUiOiJSb290IEFjY2VzcyIsIm5iZiI6MTU5MzMwODAyMCwiZXhwIjoxNTk1OTAwMDIwLCJpYXQiOjE1OTMzMDgwMjB9.so9NyoilMrVs1cFcshrQY1A5327JrKCXMgEU-Azl9rg</arg>
+</arguments>
+<assign>
+<var>${HEADERS}</var>
+</assign>
+<msg timestamp="20200627 23:12:04.468" level="INFO">${HEADERS} = {'Content-Type': 'application/json; charset=utf-8', 'AccessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUm9vdCIsInJvbGUiOiJSb290IEFjY2VzcyIsIm5iZiI6MTU5MzMwODAyMCwiZXhwIjo...</msg>
+<status status="PASS" starttime="20200627 23:12:04.467" endtime="20200627 23:12:04.468"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${JSON_PATH}new_vendedor.json</arg>
+</arguments>
+<assign>
+<var>${BODY}</var>
+</assign>
+<msg timestamp="20200627 23:12:04.469" level="INFO" html="yes">Getting file '&lt;a href="file:///home/cndr/workspace/Robot/suiteCaruana/adquirenciaAPI/json/new_vendedor.json"&gt;/home/cndr/workspace/Robot/suiteCaruana/adquirenciaAPI/json/new_vendedor.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200627 23:12:04.469" level="INFO">${BODY} = {
+    "id": 0,
+    "dataCriacao": "2020-06-24T16:34:34.510Z",
+    "dataModificacao": "2020-06-24T16:34:34.510Z",
+    "ip": "",
+    "geolocalizacao": "",
+    "ativo": true,
+    "responsavelCriacao": 0,...</msg>
+<status status="PASS" starttime="20200627 23:12:04.468" endtime="20200627 23:12:04.469"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>Adquirencia_API</arg>
+<arg>Vendedor</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>data=${BODY}</arg>
+</arguments>
+<assign>
+<var>${POST_NEW_VENDEDOR}</var>
+</assign>
+<msg timestamp="20200627 23:12:14.764" level="INFO">POST Request : url=http://18.230.42.118:5100/api/Vendedor 
+ path_url=/api/Vendedor 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json; charset=utf-8', 'AccessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUm9vdCIsInJvbGUiOiJSb290IEFjY2VzcyIsIm5iZiI6MTU5MzMwODAyMCwiZXhwIjoxNTk1OTAwMDIwLCJpYXQiOjE1OTMzMDgwMjB9.so9NyoilMrVs1cFcshrQY1A5327JrKCXMgEU-Azl9rg', 'Content-Length': '651'} 
+ body=b'{\n    "id": 0,\n    "dataCriacao": "2020-06-24T16:34:34.510Z",\n    "dataModificacao": "2020-06-24T16:34:34.510Z",\n    "ip": "",\n    "geolocalizacao": "",\n    "ativo": true,\n    "responsavelCriacao": 0,\n    "responsavelModificacao": 0,\n    "login": "Sdo",\n    "Localidade": {\n          "id": 162,\n          "cidade": "Manaus",\n          "estado": "AM"\n     },\n    "senha": "",\n    "senhaNova": "",\n    "senhaConfere": "",\n    "nome": "Suellen de Oliveira",\n    "cpf": "09307156436",\n    "telefone": "92988789789",\n    "email": "conrado+01008@b2ml.com.br",\n    "metaMensal": 5,\n    "compromissos": [],\n    "equipeVendaVendedores": [],\n    "status": 1\n  }' 
+ </msg>
+<msg timestamp="20200627 23:12:14.765" level="INFO">POST Response : url=http://18.230.42.118:5100/api/Vendedor 
+ status=201, reason=Created 
+ body={"login":"Sdo","senha":"","senhaNova":"","senhaConfere":"","nome":"Suellen de Oliveira","cpf":"09307156436","telefone":"92988789789","email":"conrado+01008@b2ml.com.br","metaMensal":5,"compromissos":[],"equipeVendaVendedores":[],"localidade":{"id":162,"cidade":"Manaus","estado":"AM"},"status":1,"id":0,"dataCriacao":"2020-06-24T16:34:34.51+00:00","dataModificacao":"2020-06-24T16:34:34.51+00:00","ip":"","geolocalizacao":"","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0} 
+ </msg>
+<msg timestamp="20200627 23:12:14.765" level="INFO">${POST_NEW_VENDEDOR} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20200627 23:12:04.469" endtime="20200627 23:12:14.765"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${POST_NEW_VENDEDOR}</arg>
+</arguments>
+<msg timestamp="20200627 23:12:14.766" level="INFO">${POST_NEW_VENDEDOR} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20200627 23:12:14.765" endtime="20200627 23:12:14.766"></status>
+</kw>
+<status status="PASS" starttime="20200627 23:12:04.466" endtime="20200627 23:12:14.766"></status>
+</kw>
+<kw name="Conferir o status POST vendedor" library="resourceAPI">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${POST_NEW_VENDEDOR.status_code}</arg>
+<arg>${STATUS_NEW_VENDEDOR_VERIFY}</arg>
+</arguments>
+<msg timestamp="20200627 23:12:14.769" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200627 23:12:14.768" endtime="20200627 23:12:14.769"></status>
+</kw>
+<status status="PASS" starttime="20200627 23:12:14.767" endtime="20200627 23:12:14.769"></status>
+</kw>
+<kw name="Conferir o reason POST vendedor" library="resourceAPI">
+<arguments>
+<arg>Created</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${POST_NEW_VENDEDOR.reason}</arg>
+<arg>${REASON_NEW_VENDEDOR_VERIFY}</arg>
+</arguments>
+<status status="PASS" starttime="20200627 23:12:14.772" endtime="20200627 23:12:14.773"></status>
+</kw>
+<status status="PASS" starttime="20200627 23:12:14.771" endtime="20200627 23:12:14.773"></status>
+</kw>
+<kw name="Exibir os dados do novo vendedor" library="resourceAPI">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${POST_NEW_VENDEDOR.text}</arg>
+</arguments>
+<msg timestamp="20200627 23:12:14.775" level="INFO">{"login":"Sdo","senha":"","senhaNova":"","senhaConfere":"","nome":"Suellen de Oliveira","cpf":"09307156436","telefone":"92988789789","email":"conrado+01008@b2ml.com.br","metaMensal":5,"compromissos":[],"equipeVendaVendedores":[],"localidade":{"id":162,"cidade":"Manaus","estado":"AM"},"status":1,"id":0,"dataCriacao":"2020-06-24T16:34:34.51+00:00","dataModificacao":"2020-06-24T16:34:34.51+00:00","ip":"","geolocalizacao":"","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0}</msg>
+<status status="PASS" starttime="20200627 23:12:14.774" endtime="20200627 23:12:14.775"></status>
+</kw>
+<status status="PASS" starttime="20200627 23:12:14.773" endtime="20200627 23:12:14.775"></status>
+</kw>
+<tags>
+<tag>caso04</tag>
+</tags>
+<status status="PASS" starttime="20200627 23:12:04.465" endtime="20200627 23:12:14.775" critical="yes"></status>
+</test>
+<doc>http://18.230.42.118:5100/subadquirencia/cadastro/swagger/index.html#/</doc>
+<status status="PASS" starttime="20200627 23:12:04.266" endtime="20200627 23:12:14.776"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">caso04</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="testAPI">testAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

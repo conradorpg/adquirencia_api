@@ -1,0 +1,27 @@
+{
+    "id": 0,
+    "dataCriacao": "2020-06-24T16:34:34.510Z",
+    "dataModificacao": "2020-06-24T16:34:34.510Z",
+    "ip": "",
+    "geolocalizacao": "",
+    "ativo": true,
+    "responsavelCriacao": 0,
+    "responsavelModificacao": 0,
+    "login": "Sdo",
+    "Localidade": {
+          "id": 162,
+          "cidade": "Manaus",
+          "estado": "AM"
+     },
+    "senha": "",
+    "senhaNova": "",
+    "senhaConfere": "",
+    "nome": "Suellen de Oliveira",
+    "cpf": "09307156436",
+    "telefone": "92988789789",
+    "email": "conrado+01008@b2ml.com.br",
+    "metaMensal": 5,
+    "compromissos": [],
+    "equipeVendaVendedores": [],
+    "status": 1
+  }

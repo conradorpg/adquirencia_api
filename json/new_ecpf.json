@@ -1,0 +1,85 @@
+{
+    "tipo": 2,
+    "nomeCompleto": "Academia de Patinação",
+    "nomeMae": "Rita dos Santos",
+    "dataNascimento": "0001-01-01T00:00:00+00:00",
+    "documentoIdentificacao": "57759474188",
+    "etapa": 5,
+    "email": "conrado+000308@b2ml.com.br",
+    "pep": false,
+    "mcc": {
+        "id": 7911,
+        "descricao": "Academias/Estudios de Dança - Salões de Baile "
+    },
+    "endereco": {
+        "logradouro": "Avenida Joaquim Nabuco",
+        "numero": 62,
+        "complemento": "até 783/784",
+        "cep": 69005080,
+        "cepstr": "69005080",
+        "primario": false,
+        "bairro": "Centro",
+        "localidade": {
+            "id": 162,
+            "cidade": "Manaus",
+            "estado": "AM"
+        },
+        "id": 0,
+        "dataCriacao": "0001-01-01T00:00:00+00:00",
+        "dataModificacao": "0001-01-01T00:00:00+00:00",
+        "ativo": false,
+        "responsavelCriacao": 0,
+        "responsavelModificacao": 0
+    },
+    "contatos": [
+        {
+            "nome": "Eleonor dos Santos Prado",
+            "telefone": "(92) 99887-4577",
+            "representanteLegal": false,
+            "id": 0,
+            "dataCriacao": "0001-01-01T00:00:00+00:00",
+            "dataModificacao": "0001-01-01T00:00:00+00:00",
+            "ativo": true,
+            "responsavelCriacao": 0,
+            "responsavelModificacao": 0
+        }
+    ],
+    "faturamentoMensal": {
+        "ticketMedio": 0,
+        "transacoesDiarias": 0,
+        "volumeMensal": 0,
+        "taxaDebito": 0,
+        "taxaCredito": 0,
+        "id": 0,
+        "dataCriacao": "2020-04-17T14:48:27.0088046+00:00",
+        "dataModificacao": "0001-01-01T00:00:00+00:00",
+        "ativo": true,
+        "responsavelCriacao": 0,
+        "responsavelModificacao": 0
+    },
+    "documentos": [],
+    "taxas": [],
+    "domicilio": {
+        "banco": "335",
+        "conta": "000456",
+        "agencia": "401",
+        "tipoConta": "Conta Salário",
+        "id": 0,
+        "dataCriacao": "0001-01-01T00:00:00+00:00",
+        "dataModificacao": "0001-01-01T00:00:00+00:00",
+        "ativo": false,
+        "responsavelCriacao": 0,
+        "responsavelModificacao": 0
+    },
+    "equipamentos": [],
+    "telefone": "9288564577",
+    "maxParcelas": 3,
+    "aprovadoForca": false,
+    "taxaAntecipacaoMensal": 1,
+    "id": 0,
+    "dataCriacao": "2020-04-17T14:48:27.0088034+00:00",
+    "dataModificacao": "2020-06-24T14:07:53.1135674+00:00",
+    "ativo": true,
+    "responsavelCriacao": 0,
+    "responsavelModificacao": 0
+}

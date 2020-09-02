@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.6.9 on linux)" generated="20200707 19:00:12.665" rpa="false">
+<suite id="s1" name="testAPI" source="/home/cndr/workspace/Robot/suiteCaruana/adquirenciaAPI/tests/testAPI.robot">
+<kw name="Connect to API" library="resourceAPI" type="setup">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>Adquirencia_API</arg>
+<arg>${URL_API}</arg>
+</arguments>
+<msg timestamp="20200707 19:00:12.829" level="INFO">Creating Session using : alias=Adquirencia_API, url=http://18.230.42.118:5100/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200707 19:00:12.828" endtime="20200707 19:00:12.833"></status>
+</kw>
+<status status="PASS" starttime="20200707 19:00:12.828" endtime="20200707 19:00:12.833"></status>
+</kw>
+<test id="s1-t1" name="Cadastrar EC PF (POST)">
+<kw name="Cadastrar um novo EC PF" library="resourceAPI">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json; charset=utf-8</arg>
+<arg>AccessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUm9vdCIsInJvbGUiOiJSb290IEFjY2VzcyIsIm5iZiI6MTU5MzMwODAyMCwiZXhwIjoxNTk1OTAwMDIwLCJpYXQiOjE1OTMzMDgwMjB9.so9NyoilMrVs1cFcshrQY1A5327JrKCXMgEU-Azl9rg</arg>
+</arguments>
+<assign>
+<var>${HEADERS}</var>
+</assign>
+<msg timestamp="20200707 19:00:12.839" level="INFO">${HEADERS} = {'Content-Type': 'application/json; charset=utf-8', 'AccessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUm9vdCIsInJvbGUiOiJSb290IEFjY2VzcyIsIm5iZiI6MTU5MzMwODAyMCwiZXhwIjo...</msg>
+<status status="PASS" starttime="20200707 19:00:12.837" endtime="20200707 19:00:12.839"></status>
+</kw>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${JSON_PATH}new_ecpf.json</arg>
+</arguments>
+<assign>
+<var>${BODY}</var>
+</assign>
+<msg timestamp="20200707 19:00:12.840" level="INFO" html="yes">Getting file '&lt;a href="file:///home/cndr/workspace/Robot/suiteCaruana/adquirenciaAPI/json/new_ecpf.json"&gt;/home/cndr/workspace/Robot/suiteCaruana/adquirenciaAPI/json/new_ecpf.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200707 19:00:12.841" level="INFO">${BODY} = {
+    "tipo": 2,
+    "nomeCompleto": "Academia de Patina\xc3\xa7\xc3\xa3o",
+    "nomeMae": "Rita dos Santos",
+    "dataNascimento": "0001-01-01T00:00:00+00:00",
+    "documentoIdentificacao": "57759474...</msg>
+<status status="PASS" starttime="20200707 19:00:12.839" endtime="20200707 19:00:12.841"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>Adquirencia_API</arg>
+<arg>Estabelecimentopf</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>data=${BODY}</arg>
+</arguments>
+<assign>
+<var>${REQUEST}</var>
+</assign>
+<msg timestamp="20200707 19:00:16.296" level="INFO">POST Request : url=http://18.230.42.118:5100/api/Estabelecimentopf 
+ path_url=/api/Estabelecimentopf 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json; charset=utf-8', 'AccessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUm9vdCIsInJvbGUiOiJSb290IEFjY2VzcyIsIm5iZiI6MTU5MzMwODAyMCwiZXhwIjoxNTk1OTAwMDIwLCJpYXQiOjE1OTMzMDgwMjB9.so9NyoilMrVs1cFcshrQY1A5327JrKCXMgEU-Azl9rg', 'Content-Length': '2520'} 
+ body=b'{\n    "tipo": 2,\n    "nomeCompleto": "Academia de Patina\xc3\xa7\xc3\xa3o",\n    "nomeMae": "Rita dos Santos",\n    "dataNascimento": "0001-01-01T00:00:00+00:00",\n    "documentoIdentificacao": "57759474188",\n    "etapa": 5,\n    "email": "conrado+000308@b2ml.com.br",\n    "pep": false,\n    "mcc": {\n        "id": 7911,\n        "descricao": "Academias/Estudios de Dan\xc3\xa7a - Sal\xc3\xb5es de Baile "\n    },\n    "endereco": {\n        "logradouro": "Avenida Joaquim Nabuco",\n        "numero": 62,\n        "complemento": "at\xc3\xa9 783/784",\n        "cep": 69005080,\n        "cepstr": "69005080",\n        "primario": false,\n        "bairro": "Centro",\n        "localidade": {\n            "id": 162,\n            "cidade": "Manaus",\n            "estado": "AM"\n        },\n        "id": 0,\n        "dataCriacao": "0001-01-01T00:00:00+00:00",\n        "dataModificacao": "0001-01-01T00:00:00+00:00",\n        "ativo": false,\n        "responsavelCriacao": 0,\n        "responsavelModificacao": 0\n    },\n    "contatos": [\n        {\n            "nome": "Eleonor dos Santos Prado",\n            "telefone": "(92) 99887-4577",\n            "representanteLegal": false,\n            "id": 0,\n            "dataCriacao": "0001-01-01T00:00:00+00:00",\n            "dataModificacao": "0001-01-01T00:00:00+00:00",\n            "ativo": true,\n            "responsavelCriacao": 0,\n            "responsavelModificacao": 0\n        }\n    ],\n    "faturamentoMensal": {\n        "ticketMedio": 0,\n        "transacoesDiarias": 0,\n        "volumeMensal": 0,\n        "taxaDebito": 0,\n        "taxaCredito": 0,\n        "id": 0,\n        "dataCriacao": "2020-04-17T14:48:27.0088046+00:00",\n        "dataModificacao": "0001-01-01T00:00:00+00:00",\n        "ativo": true,\n        "responsavelCriacao": 0,\n        "responsavelModificacao": 0\n    },\n    "documentos": [],\n    "taxas": [],\n    "domicilio": {\n        "banco": "335",\n        "conta": "000456",\n        "agencia": "401",\n        "tipoConta": "Conta Sal\xc3\xa1rio",\n        "id": 0,\n        "dataCriacao": "0001-01-01T00:00:00+00:00",\n        "dataModificacao": "0001-01-01T00:00:00+00:00",\n        "ativo": false,\n        "responsavelCriacao": 0,\n        "responsavelModificacao": 0\n    },\n    "equipamentos": [],\n    "telefone": "9288564577",\n    "maxParcelas": 3,\n    "aprovadoForca": false,\n    "taxaAntecipacaoMensal": 1,\n    "id": 0,\n    "dataCriacao": "2020-04-17T14:48:27.0088034+00:00",\n    "dataModificacao": "2020-06-24T14:07:53.1135674+00:00",\n    "ativo": true,\n    "responsavelCriacao": 0,\n    "responsavelModificacao": 0\n}' 
+ </msg>
+<msg timestamp="20200707 19:00:16.296" level="INFO">POST Response : url=http://18.230.42.118:5100/api/Estabelecimentopf 
+ status=201, reason=Created 
+ body={"tipo":2,"nomeCompleto":"Academia de Patinação","nomeMae":"Rita dos Santos","dataNascimento":"0001-01-01T00:00:00+00:00","documentoIdentificacao":"57759474188","etapa":5,"email":"conrado+000308@b2ml.com.br","pep":false,"mcc":{"id":7911,"descricao":"Academias/Estudios de Dança - Salões de Baile "},"endereco":{"logradouro":"Avenida Joaquim Nabuco","numero":62,"complemento":"até 783/784","cep":69005080,"cepstr":"69005080","primario":false,"bairro":"Centro","localidade":{"id":162,"cidade":"Manaus","estado":"AM"},"id":0,"dataCriacao":"0001-01-01T00:00:00+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":false,"responsavelCriacao":0,"responsavelModificacao":0},"contatos":[{"nome":"Eleonor dos Santos Prado","telefone":"(92) 99887-4577","representanteLegal":false,"id":0,"dataCriacao":"0001-01-01T00:00:00+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0}],"faturamentoMensal":{"ticketMedio":0.0,"transacoesDiarias":0,"volumeMensal":0.0,"taxaDebito":0.0,"taxaCredito":0.0,"id":0,"dataCriacao":"2020-04-17T14:48:27.0088046+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0},"documentos":[],"taxas":[],"domicilio":{"banco":"335","conta":"000456","agencia":"401","tipoConta":"Conta Salário","id":0,"dataCriacao":"0001-01-01T00:00:00+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":false,"responsavelCriacao":0,"responsavelModificacao":0},"equipamentos":[],"telefone":"9288564577","maxParcelas":3,"aprovadoForca":false,"taxaAntecipacaoMensal":1.0,"id":0,"dataCriacao":"2020-04-17T14:48:27.0088034+00:00","dataModificacao":"2020-06-24T14:07:53.1135674+00:00","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0} 
+ </msg>
+<msg timestamp="20200707 19:00:16.296" level="INFO">${REQUEST} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20200707 19:00:12.841" endtime="20200707 19:00:16.296"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${REQUEST}</arg>
+</arguments>
+<msg timestamp="20200707 19:00:16.297" level="INFO">${REQUEST} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20200707 19:00:16.297" endtime="20200707 19:00:16.298"></status>
+</kw>
+<status status="PASS" starttime="20200707 19:00:12.836" endtime="20200707 19:00:16.298"></status>
+</kw>
+<kw name="Conferir status code" library="resourceAPI">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${REQUEST.status_code}</arg>
+<arg>${STATUS_CODE}</arg>
+</arguments>
+<msg timestamp="20200707 19:00:16.300" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200707 19:00:16.299" endtime="20200707 19:00:16.300"></status>
+</kw>
+<status status="PASS" starttime="20200707 19:00:16.298" endtime="20200707 19:00:16.300"></status>
+</kw>
+<kw name="Conferir reason" library="resourceAPI">
+<arguments>
+<arg>Created</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${REQUEST.reason}</arg>
+<arg>${REASON_MESSAGE}</arg>
+</arguments>
+<status status="PASS" starttime="20200707 19:00:16.302" endtime="20200707 19:00:16.302"></status>
+</kw>
+<status status="PASS" starttime="20200707 19:00:16.301" endtime="20200707 19:00:16.303"></status>
+</kw>
+<kw name="Exibir dados" library="resourceAPI">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${REQUEST.text}</arg>
+</arguments>
+<msg timestamp="20200707 19:00:16.305" level="INFO">{"tipo":2,"nomeCompleto":"Academia de Patinação","nomeMae":"Rita dos Santos","dataNascimento":"0001-01-01T00:00:00+00:00","documentoIdentificacao":"57759474188","etapa":5,"email":"conrado+000308@b2ml.com.br","pep":false,"mcc":{"id":7911,"descricao":"Academias/Estudios de Dança - Salões de Baile "},"endereco":{"logradouro":"Avenida Joaquim Nabuco","numero":62,"complemento":"até 783/784","cep":69005080,"cepstr":"69005080","primario":false,"bairro":"Centro","localidade":{"id":162,"cidade":"Manaus","estado":"AM"},"id":0,"dataCriacao":"0001-01-01T00:00:00+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":false,"responsavelCriacao":0,"responsavelModificacao":0},"contatos":[{"nome":"Eleonor dos Santos Prado","telefone":"(92) 99887-4577","representanteLegal":false,"id":0,"dataCriacao":"0001-01-01T00:00:00+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0}],"faturamentoMensal":{"ticketMedio":0.0,"transacoesDiarias":0,"volumeMensal":0.0,"taxaDebito":0.0,"taxaCredito":0.0,"id":0,"dataCriacao":"2020-04-17T14:48:27.0088046+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0},"documentos":[],"taxas":[],"domicilio":{"banco":"335","conta":"000456","agencia":"401","tipoConta":"Conta Salário","id":0,"dataCriacao":"0001-01-01T00:00:00+00:00","dataModificacao":"0001-01-01T00:00:00+00:00","ativo":false,"responsavelCriacao":0,"responsavelModificacao":0},"equipamentos":[],"telefone":"9288564577","maxParcelas":3,"aprovadoForca":false,"taxaAntecipacaoMensal":1.0,"id":0,"dataCriacao":"2020-04-17T14:48:27.0088034+00:00","dataModificacao":"2020-06-24T14:07:53.1135674+00:00","ativo":true,"responsavelCriacao":0,"responsavelModificacao":0}</msg>
+<status status="PASS" starttime="20200707 19:00:16.304" endtime="20200707 19:00:16.305"></status>
+</kw>
+<status status="PASS" starttime="20200707 19:00:16.303" endtime="20200707 19:00:16.305"></status>
+</kw>
+<tags>
+<tag>caso07</tag>
+</tags>
+<status status="PASS" starttime="20200707 19:00:12.834" endtime="20200707 19:00:16.306" critical="yes"></status>
+</test>
+<doc>http://18.230.42.118:5100/subadquirencia/cadastro/swagger/index.html#/</doc>
+<status status="PASS" starttime="20200707 19:00:12.668" endtime="20200707 19:00:16.307"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">caso07</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="testAPI">testAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

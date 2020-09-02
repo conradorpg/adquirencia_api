@@ -1,0 +1,23 @@
+{
+    "id": "string",
+    "captura": "string",
+    "adquirente": 100,
+    "valor": 100,
+    "parcelas": 0,
+    "operacao": 1,
+    "protocolo": "string",
+    "data": "2020-06-28T02:25:32.100Z",
+    "autorizado": true,
+    "etapa": 1,
+    "transacoesAgendamentos": [
+      {
+        "id": 0,
+        "valor": 0,
+        "etapa": 1
+      }
+    ],
+    "bandeira": 0,
+    "taxaAdquirenteMcc": 0,
+    "taxaBuspay": 0,
+    "valorComissao": 0
+  }
